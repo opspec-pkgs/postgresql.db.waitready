@@ -1,0 +1,47 @@
+description: Pings a PostgreSQL database until it responds or fails by timing out. Useful to know when a DB has finished launching.
+name: github.com/opspec-pkgs/postgresql.db.waitready
+opspec: 0.1.6
+version: 1.0.0
+inputs:
+  dbUsername:
+    string:
+      constraints: { minLength: 1 }
+      description: username for the PostgreSQL database
+  dbPassword:
+    string:
+      constraints: { minLength: 1 }
+      isSecret: true
+      description: password for the PostgreSQL database
+  dbHostname:
+    string:
+      constraints: { minLength: 1 }
+      description: hostname for the PostgreSQL database
+      default: "postgresql-db"
+  dbPort:
+    number:
+      constraints: { minimum: 0, maximum: 65535 }
+      default: 5432
+      description: port for the PostgreSQL database
+  dbSchema:
+    string:
+      constraints: { minLength: 0 }
+      description: schema name for the PostgreSQL database
+  timeout:
+    number:
+      constraints: { minimum: 0 }
+      default: 60
+      description: number of seconds before giving up on waiting for the database to be avaliable
+run:
+  container:
+    image: { ref: 'golang:1.15' }
+    dirs:
+      /app: $(/)
+    envVars:
+      dbUsername:
+      dbPassword:
+      dbHostname:
+      dbPort:
+      dbSchema:
+      timeout:
+    cmd: [ 'go', 'run', 'main.go' ]
+    workDir: /app
