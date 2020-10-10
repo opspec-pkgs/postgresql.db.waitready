@@ -29,6 +29,15 @@ opctl run github.com/opspec-pkgs/postgresql.db.waitready#1.0.0
 ```yaml
 op:
   ref: github.com/opspec-pkgs/postgresql.db.waitready#1.0.0
+  inputs:
+    # required
+    dbPassword:
+    dbSchema:
+    dbUsername:
+    ### optional; uncomment to override default(s)
+    # dbHostname: postgresql-db
+    # dbPort: 5432
+    # timeout: 60
 ```
 
 # Support

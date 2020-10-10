@@ -3,6 +3,3 @@
 
 # opctl
 *args*.yml
-
-#project
-postgresql.db.waitready
