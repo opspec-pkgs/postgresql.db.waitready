@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/opspec-pkgs/postgresql.db.waitready.svg?branch=master)](https://travis-ci.org/opspec-pkgs/postgresql.db.waitready)
+[![Build Status](https://github.com/opspec-pkgs/postgresql.db.waitready/workflows/build/badge.svg?branch=main)](https://github.com/opspec-pkgs/postgresql.db.waitready/actions?query=workflow%3Abuild+branch%3Amain)
 
 <img src="icon.svg" alt="icon" height="100px">
 
@@ -6,16 +6,12 @@
 
 Pings a PostgreSQL database until it responds or fails by timing out. Useful to know when a DB has finished launching.
 
-# Format
-
-the op uses [![opspec 0.1.6](https://img.shields.io/badge/opspec-0.1.6-brightgreen.svg?colorA=6b6b6b&colorB=fc16be)](https://opspec.io/0.1.6) definition format
-
 # Example usage
 
-## Install
+## Visualize
 
 ```shell
-opctl op install github.com/opspec-pkgs/postgresql.db.waitready#1.0.0
+opctl ui github.com/opspec-pkgs/postgresql.db.waitready#1.0.0
 ```
 
 ## Run
@@ -30,20 +26,19 @@ opctl run github.com/opspec-pkgs/postgresql.db.waitready#1.0.0
 op:
   ref: github.com/opspec-pkgs/postgresql.db.waitready#1.0.0
   inputs:
-    # required
-    dbPassword:
-    dbSchema:
-    dbUsername:
-    ### optional; uncomment to override default(s)
-    # dbHostname: postgresql-db
-    # dbPort: 5432
-    # timeout: 60
+    dbPassword:  # 👈 required; provide a value
+    dbSchema:  # 👈 required; provide a value
+    dbUsername:  # 👈 required; provide a value
+  ## uncomment to override defaults
+  #   dbHostname: "postgresql-db"
+  #   dbPort: 5432
+  #   timeout: 60
 ```
 
 # Support
 
 join us on
-[![Slack](https://opctl-slackin.herokuapp.com/badge.svg)](https://opctl-slackin.herokuapp.com/)
+[![Slack](https://img.shields.io/badge/slack-opctl-E01563.svg)](https://join.slack.com/t/opctl/shared_invite/zt-51zodvjn-Ul_UXfkhqYLWZPQTvNPp5w)
 or
 [open an issue](https://github.com/opspec-pkgs/postgresql.db.waitready/issues)
 
@@ -57,4 +52,4 @@ and [tagged](https://git-scm.com/book/en/v2/Git-Basics-Tagging); see
 # Contributing
 
 see
-[project/CONTRIBUTING.md](https://github.com/opspec-pkgs/project/blob/master/CONTRIBUTING.md)
+[project/CONTRIBUTING.md](https://github.com/opspec-pkgs/project/blob/main/CONTRIBUTING.md)
